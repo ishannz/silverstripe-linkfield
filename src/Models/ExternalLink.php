@@ -46,7 +46,10 @@ class ExternalLink extends Link
 
     public function getDescription(): string
     {
-        return $this->ExternalUrl ?: '';
+        $description = $this->ExternalUrl ?: '';
+        $this->extend('updateDescription', $description);
+
+        return $description;
     }
 
     public function getURL(): string

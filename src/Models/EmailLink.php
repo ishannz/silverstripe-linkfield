@@ -45,7 +45,10 @@ class EmailLink extends Link
 
     public function getDescription(): string
     {
-        return $this->Email ?: '';
+        $description = $this->Email ?: '';
+        $this->extend('updateDescription', $description);
+
+        return $description;
     }
 
     public function getURL(): string

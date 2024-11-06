@@ -40,7 +40,10 @@ class PhoneLink extends Link
 
     public function getDescription(): string
     {
-        return $this->Phone ?: '';
+        $description = $this->Phone ?: '';
+        $this->extend('updateDescription', $description);
+
+        return $description;
     }
 
     public function getURL(): string
